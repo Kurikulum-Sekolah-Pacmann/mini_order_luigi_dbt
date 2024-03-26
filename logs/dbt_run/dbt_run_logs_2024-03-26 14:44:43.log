@@ -1,0 +1,39 @@
+[0m07:45:15  Running with dbt=1.7.8
+[0m07:45:15  Registered adapter: postgres=1.7.8
+[0m07:45:15  Found 10 models, 1 operation, 21 tests, 6 sources, 0 exposures, 0 metrics, 860 macros, 0 groups, 0 semantic models
+[0m07:45:15  
+[0m07:45:15  Concurrency: 4 threads (target='dev')
+[0m07:45:15  
+[0m07:45:15  1 of 10 START sql table model mini_order_luigi_dbt.dim_dates ................... [RUN]
+[0m07:45:15  4 of 10 START sql view model mini_order_luigi_dbt.stg_mini_order__order_detail . [RUN]
+[0m07:45:15  3 of 10 START sql view model mini_order_luigi_dbt.stg_mini_order__customer ..... [RUN]
+[0m07:45:15  2 of 10 START sql view model mini_order_luigi_dbt.stg_mini_order__category ..... [RUN]
+[0m07:45:16  2 of 10 OK created sql view model mini_order_luigi_dbt.stg_mini_order__category  [[32mCREATE VIEW[0m in 0.70s]
+[0m07:45:16  3 of 10 OK created sql view model mini_order_luigi_dbt.stg_mini_order__customer  [[32mCREATE VIEW[0m in 0.71s]
+[0m07:45:16  5 of 10 START sql view model mini_order_luigi_dbt.stg_mini_order__orders ....... [RUN]
+[0m07:45:16  4 of 10 OK created sql view model mini_order_luigi_dbt.stg_mini_order__order_detail  [[32mCREATE VIEW[0m in 0.75s]
+[0m07:45:16  6 of 10 START sql view model mini_order_luigi_dbt.stg_mini_order__product ...... [RUN]
+[0m07:45:16  7 of 10 START sql view model mini_order_luigi_dbt.stg_mini_order__subcategory .. [RUN]
+[0m07:45:17  5 of 10 OK created sql view model mini_order_luigi_dbt.stg_mini_order__orders .. [[32mCREATE VIEW[0m in 0.37s]
+[0m07:45:17  8 of 10 START sql table model mini_order_luigi_dbt.dim_customers ............... [RUN]
+[0m07:45:17  6 of 10 OK created sql view model mini_order_luigi_dbt.stg_mini_order__product . [[32mCREATE VIEW[0m in 0.60s]
+[0m07:45:17  7 of 10 OK created sql view model mini_order_luigi_dbt.stg_mini_order__subcategory  [[32mCREATE VIEW[0m in 0.62s]
+[0m07:45:17  9 of 10 START sql table model mini_order_luigi_dbt.dim_products ................ [RUN]
+[0m07:45:17  1 of 10 OK created sql table model mini_order_luigi_dbt.dim_dates .............. [[32mSELECT 22279[0m in 1.58s]
+[0m07:45:17  8 of 10 OK created sql table model mini_order_luigi_dbt.dim_customers .......... [[32mSELECT 1000[0m in 0.43s]
+[0m07:45:17  9 of 10 OK created sql table model mini_order_luigi_dbt.dim_products ........... [[32mSELECT 1351[0m in 0.20s]
+[0m07:45:17  10 of 10 START sql table model mini_order_luigi_dbt.fct_orders ................. [RUN]
+[0m07:45:17  10 of 10 OK created sql table model mini_order_luigi_dbt.fct_orders ............ [[32mSELECT 3628[0m in 0.14s]
+[0m07:45:17  
+[0m07:45:17  Running 1 on-run-end hook
+[0m07:45:17  Running dbt Constraints
+[0m07:45:17  Finished dbt Constraints
+[0m07:45:17  1 of 1 START hook: dbt_constraints.on-run-end.0 ................................ [RUN]
+[0m07:45:17  1 of 1 OK hook: dbt_constraints.on-run-end.0 ................................... [[32mOK[0m in 0.00s]
+[0m07:45:17  
+[0m07:45:17  
+[0m07:45:17  Finished running 6 view models, 4 table models, 1 hook in 0 hours 0 minutes and 2.01 seconds (2.01s).
+[0m07:45:17  
+[0m07:45:17  [32mCompleted successfully[0m
+[0m07:45:17  
+[0m07:45:17  Done. PASS=10 WARN=0 ERROR=0 SKIP=0 TOTAL=10

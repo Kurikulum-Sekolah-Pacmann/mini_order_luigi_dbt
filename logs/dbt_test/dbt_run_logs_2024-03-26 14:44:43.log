@@ -1,0 +1,77 @@
+[0m07:45:06  Running with dbt=1.7.8
+[0m07:45:06  Registered adapter: postgres=1.7.8
+[0m07:45:06  Found 10 models, 1 operation, 21 tests, 6 sources, 0 exposures, 0 metrics, 860 macros, 0 groups, 0 semantic models
+[0m07:45:06  
+[0m07:45:06  Concurrency: 4 threads (target='dev')
+[0m07:45:06  
+[0m07:45:06  1 of 21 START test accepted_values_dim_products_category_name__Electronics__HomeImprovement__Toys_Games__Computers_Accessories__Car_Motorbike__Home_Kitchen__Health_PersonalCare__OfficeProducts__MusicalInstruments  [RUN]
+[0m07:45:06  3 of 21 START test dbt_constraints_foreign_key_fct_orders_sk_customer_id__sk_customer_id__ref_dim_customers_  [RUN]
+[0m07:45:06  2 of 21 START test dbt_constraints_foreign_key_fct_orders_order_date__date_day__ref_dim_dates_  [RUN]
+[0m07:45:06  4 of 21 START test dbt_constraints_foreign_key_fct_orders_sk_product_id__sk_product_id__ref_dim_products_  [RUN]
+[0m07:45:06  3 of 21 PASS dbt_constraints_foreign_key_fct_orders_sk_customer_id__sk_customer_id__ref_dim_customers_  [[32mPASS[0m in 0.16s]
+[0m07:45:06  5 of 21 START test dbt_constraints_primary_key_dim_customers_sk_customer_id .... [RUN]
+[0m07:45:06  1 of 21 PASS accepted_values_dim_products_category_name__Electronics__HomeImprovement__Toys_Games__Computers_Accessories__Car_Motorbike__Home_Kitchen__Health_PersonalCare__OfficeProducts__MusicalInstruments  [[32mPASS[0m in 0.18s]
+[0m07:45:06  2 of 21 PASS dbt_constraints_foreign_key_fct_orders_order_date__date_day__ref_dim_dates_  [[32mPASS[0m in 0.18s]
+[0m07:45:06  6 of 21 START test dbt_constraints_primary_key_dim_dates_date_day .............. [RUN]
+[0m07:45:06  7 of 21 START test dbt_constraints_primary_key_dim_products_sk_product_id ...... [RUN]
+[0m07:45:06  4 of 21 PASS dbt_constraints_foreign_key_fct_orders_sk_product_id__sk_product_id__ref_dim_products_  [[32mPASS[0m in 0.15s]
+[0m07:45:07  8 of 21 START test dbt_constraints_primary_key_fct_orders_sk_order_id .......... [RUN]
+[0m07:45:07  5 of 21 PASS dbt_constraints_primary_key_dim_customers_sk_customer_id .......... [[32mPASS[0m in 0.16s]
+[0m07:45:07  9 of 21 START test is_qty_less_than_zero_fct_orders_order_qty .................. [RUN]
+[0m07:45:07  7 of 21 PASS dbt_constraints_primary_key_dim_products_sk_product_id ............ [[32mPASS[0m in 0.17s]
+[0m07:45:07  6 of 21 PASS dbt_constraints_primary_key_dim_dates_date_day .................... [[32mPASS[0m in 0.24s]
+[0m07:45:07  11 of 21 START test not_null_dim_customers_sk_customer_id ...................... [RUN]
+[0m07:45:07  10 of 21 START test not_null_dim_customers_nk_customer_id ...................... [RUN]
+[0m07:45:07  8 of 21 PASS dbt_constraints_primary_key_fct_orders_sk_order_id ................ [[32mPASS[0m in 0.28s]
+[0m07:45:07  12 of 21 START test not_null_dim_dates_date_day ................................ [RUN]
+[0m07:45:07  10 of 21 PASS not_null_dim_customers_nk_customer_id ............................ [[32mPASS[0m in 0.20s]
+[0m07:45:07  13 of 21 START test not_null_dim_products_category_name ........................ [RUN]
+[0m07:45:07  9 of 21 PASS is_qty_less_than_zero_fct_orders_order_qty ........................ [[32mPASS[0m in 0.39s]
+[0m07:45:07  14 of 21 START test not_null_dim_products_nk_product_id ........................ [RUN]
+[0m07:45:07  12 of 21 PASS not_null_dim_dates_date_day ...................................... [[32mPASS[0m in 0.32s]
+[0m07:45:07  15 of 21 START test not_null_dim_products_sk_product_id ........................ [RUN]
+[0m07:45:07  11 of 21 PASS not_null_dim_customers_sk_customer_id ............................ [[32mPASS[0m in 0.37s]
+[0m07:45:07  16 of 21 START test not_null_fct_orders_nk_order_id ............................ [RUN]
+[0m07:45:07  13 of 21 PASS not_null_dim_products_category_name .............................. [[32mPASS[0m in 0.24s]
+[0m07:45:07  17 of 21 START test not_null_fct_orders_order_date ............................. [RUN]
+[0m07:45:07  14 of 21 PASS not_null_dim_products_nk_product_id .............................. [[32mPASS[0m in 0.22s]
+[0m07:45:07  18 of 21 START test not_null_fct_orders_order_qty .............................. [RUN]
+[0m07:45:07  15 of 21 PASS not_null_dim_products_sk_product_id .............................. [[32mPASS[0m in 0.18s]
+[0m07:45:07  16 of 21 PASS not_null_fct_orders_nk_order_id .................................. [[32mPASS[0m in 0.17s]
+[0m07:45:07  19 of 21 START test not_null_fct_orders_sk_customer_id ......................... [RUN]
+[0m07:45:07  20 of 21 START test not_null_fct_orders_sk_order_id ............................ [RUN]
+[0m07:45:08  17 of 21 PASS not_null_fct_orders_order_date ................................... [[32mPASS[0m in 0.27s]
+[0m07:45:08  18 of 21 PASS not_null_fct_orders_order_qty .................................... [[32mPASS[0m in 0.26s]
+[0m07:45:08  21 of 21 START test not_null_fct_orders_sk_product_id .......................... [RUN]
+[0m07:45:08  19 of 21 PASS not_null_fct_orders_sk_customer_id ............................... [[32mPASS[0m in 0.16s]
+[0m07:45:08  20 of 21 PASS not_null_fct_orders_sk_order_id .................................. [[32mPASS[0m in 0.17s]
+[0m07:45:08  21 of 21 PASS not_null_fct_orders_sk_product_id ................................ [[32mPASS[0m in 0.06s]
+[0m07:45:08  
+[0m07:45:08  Running 1 on-run-end hook
+[0m07:45:08  Running dbt Constraints
+[0m07:45:08  Creating not null constraint for: nk_customer_id in "mini_order"."mini_order_luigi_dbt"."dim_customers"
+[0m07:45:08  Creating not null constraint for: date_day in "mini_order"."mini_order_luigi_dbt"."dim_dates"
+[0m07:45:08  Creating not null constraint for: sk_customer_id in "mini_order"."mini_order_luigi_dbt"."dim_customers"
+[0m07:45:08  Creating not null constraint for: category_name in "mini_order"."mini_order_luigi_dbt"."dim_products"
+[0m07:45:08  Creating not null constraint for: nk_product_id in "mini_order"."mini_order_luigi_dbt"."dim_products"
+[0m07:45:08  Creating not null constraint for: sk_product_id in "mini_order"."mini_order_luigi_dbt"."dim_products"
+[0m07:45:08  Creating not null constraint for: nk_order_id in "mini_order"."mini_order_luigi_dbt"."fct_orders"
+[0m07:45:08  Creating not null constraint for: order_date in "mini_order"."mini_order_luigi_dbt"."fct_orders"
+[0m07:45:08  Creating not null constraint for: order_qty in "mini_order"."mini_order_luigi_dbt"."fct_orders"
+[0m07:45:08  Creating not null constraint for: sk_customer_id in "mini_order"."mini_order_luigi_dbt"."fct_orders"
+[0m07:45:08  Creating not null constraint for: sk_order_id in "mini_order"."mini_order_luigi_dbt"."fct_orders"
+[0m07:45:08  Creating not null constraint for: sk_product_id in "mini_order"."mini_order_luigi_dbt"."fct_orders"
+[0m07:45:08  Creating not null constraint for: sk_customer_id in "mini_order"."mini_order_luigi_dbt"."dim_customers"
+[0m07:45:08  Creating not null constraint for: date_day in "mini_order"."mini_order_luigi_dbt"."dim_dates"
+[0m07:45:08  Creating not null constraint for: sk_product_id in "mini_order"."mini_order_luigi_dbt"."dim_products"
+[0m07:45:08  Creating not null constraint for: sk_order_id in "mini_order"."mini_order_luigi_dbt"."fct_orders"
+[0m07:45:08  Finished dbt Constraints
+[0m07:45:08  1 of 1 START hook: dbt_constraints.on-run-end.0 ................................ [RUN]
+[0m07:45:08  1 of 1 OK hook: dbt_constraints.on-run-end.0 ................................... [[32mOK[0m in 0.00s]
+[0m07:45:08  
+[0m07:45:08  
+[0m07:45:08  Finished running 21 tests, 1 hook in 0 hours 0 minutes and 2.28 seconds (2.28s).
+[0m07:45:09  
+[0m07:45:09  [32mCompleted successfully[0m
+[0m07:45:09  
+[0m07:45:09  Done. PASS=21 WARN=0 ERROR=0 SKIP=0 TOTAL=21

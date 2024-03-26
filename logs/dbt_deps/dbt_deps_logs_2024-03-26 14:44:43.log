@@ -1,0 +1,13 @@
+[0m07:44:56  Running with dbt=1.7.8
+[0m07:44:57  Installing dbt-labs/dbt_utils
+[0m07:44:58  Installed from version 1.1.1
+[0m07:44:58  Up to date!
+[0m07:44:58  Installing calogica/dbt_expectations
+[0m07:44:59  Installed from version 0.10.3
+[0m07:44:59  Up to date!
+[0m07:44:59  Installing Snowflake-Labs/dbt_constraints
+[0m07:45:00  Installed from version 0.6.3
+[0m07:45:00  Up to date!
+[0m07:45:00  Installing calogica/dbt_date
+[0m07:45:00  Installed from version 0.10.0
+[0m07:45:00  Up to date!
