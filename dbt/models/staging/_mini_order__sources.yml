@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+   - name: mini_order
+     database: mini_order
+     schema: public
+     tables:
+      - name: category
+      - name: customer
+      - name: order_detail
+      - name: orders
+      - name: product
+      - name: subcategory
