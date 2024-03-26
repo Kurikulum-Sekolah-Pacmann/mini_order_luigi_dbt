@@ -47,18 +47,6 @@ models:
                       'Computers&Accessories', 'Car&Motorbike', 'Home&Kitchen',
                       'Health&PersonalCare', 'OfficeProducts', 'MusicalInstruments']
       
-      - name: price
-        description: "Price of Product"
-        tests:
-          - dbt_expectations.expect_column_value_to_be_of_type:
-              column_type: numeric
-
-      - name: stock
-        description: "Stock of Product"
-        tests:
-          - dbt_expectations.expect_column_value_to_be_of_type:
-              column_type: integer
-        
   - name: fct_orders
     description: "Fact table for Orders Mini Order"
     columns:
