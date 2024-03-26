@@ -34,7 +34,7 @@ dim_dates as (
 
 final_fct_orders as (
     select
-        {{ dbt_utils.generate_surrogate_key( ["sfo.nk_order_id"] ) }} as sk_order_id,
+        {{ dbt_utils.generate_surrogate_key( ["sfo.nk_order_id", "dp.sk_product_id", "dc.sk_customer_id", "sod.quantity"] ) }} as sk_order_id,
         sfo.nk_order_id,
         dp.sk_product_id,
         dc.sk_customer_id,
