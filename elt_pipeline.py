@@ -102,7 +102,7 @@ class dbtRun(luigi.Task):
     
     def run(self):
 
-        with open(self.output().path, a) as f:
+        with open(self.output().path, "a") as f:
             p1 = sp.run("cd ./dbt/ && dbt run",
                         stdout = f,
                         stderr = sp.PIPE,
