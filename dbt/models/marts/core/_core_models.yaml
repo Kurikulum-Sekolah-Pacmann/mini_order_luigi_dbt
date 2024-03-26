@@ -1,0 +1,113 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Dimension table for Customers data"
+    columns:
+      - name: sk_customer_id
+        description: "Surrogate Key for customer_id"
+        tests:
+          - not_null
+          - dbt_constraints.primary_key
+
+      - name: nk_customer_id
+        description: "Natural Key for customer_id"
+        tests:
+          - not_null
+
+  - name: dim_dates
+    description: "Dimension table for Dates data"
+    columns:
+      - name: date_day
+        description: "Primary Key for dim_dates"
+        tests:
+          - not_null
+          - dbt_constraints.primary_key
+
+  - name: dim_products
+    description: "Dimension table for Products data"
+    columns:
+      - name: sk_product_id
+        description: "Surrogate Key for product_id"
+        tests:
+          - not_null
+          - dbt_constraints.primary_key
+
+      - name: nk_product_id
+        description: "Natural Key for product_id"
+        tests:
+          - not_null
+
+      - name: category_name
+        description: "Category of Product"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Electronics', 'HomeImprovement', 'Toys&Games',
+                      'Computers&Accessories', 'Car&Motorbike', 'Home&Kitchen',
+                      'Health&PersonalCare', 'OfficeProducts', 'MusicalInstruments']
+      
+      - name: price
+        description: "Price of Product"
+        tests:
+          - dbt_expectations.expect_column_value_to_be_of_type:
+              column_type: numeric
+
+      - name: stock
+        description: "Stock of Product"
+        tests:
+          - dbt_expectations.expect_column_value_to_be_of_type:
+              column_type: integer
+        
+  - name: fct_orders
+    description: "Fact table for Orders Mini Order"
+    columns:
+      - name: sk_order_id
+        description: "Surrogate Key for order_id"
+        tests:
+          - not_null
+          - dbt_constraints.primary_key
+      
+      - name: nk_order_id
+        description: "Natural Key for order_id"
+        tests:
+          - not_null
+
+      - name: sk_product_id
+        description: "Foreign Key from dim_products"
+        tests:
+          - not_null
+          - dbt_constraints.foreign_key:
+              pk_table_name: ref('dim_products')
+              pk_column_name: sk_product_id
+
+      - name: sk_customer_id
+        description: "Foreign Key from dim_customers"
+        tests:
+          - not_null
+          - dbt_constraints.foreign_key:
+              pk_table_name: ref('dim_customers')
+              pk_column_name: sk_customer_id
+
+      - name: order_date
+        description: "Foreign Key from dim_dates"
+        tests:
+          - not_null
+          - dbt_constraints.foreign_key:
+              pk_table_name: ref('dim_dates')
+              pk_column_name: date_day
+      
+      - name: order_qty
+        description: "Quantity of Order"
+        tests:
+          - not_null
+          - is_qty_less_than_zero
+
+
+
+
+
+
+
+
+
