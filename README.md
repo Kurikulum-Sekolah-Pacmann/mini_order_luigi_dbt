@@ -10,6 +10,10 @@
     - `dbt test`: Melakukan proses testing terhadap data model yang dimiliki dan membuat table constraints
     - `dbt run`: Menjalankan data model yang sudah dibuat
 
+- Sehingga, workflow dari Luigi akan seperti berikut
+
+    $$\text{dbt debug}\longrightarrow \text{dbt deps}\longrightarrow \text{dbt test}\longrightarrow \text{dbt run}$$
+
 - Pada repo ini, kita akan menggunakan case data source [Mini Order](https://github.com/ihdarsyd/mini-order/)
 - Untuk dbt data model, kita akan mengggunakan referensi dari repository https://github.com/shandytepe/mini_order_dbt/
    
@@ -23,6 +27,11 @@
 
 - Dikarenakan Luigi hanya bisa berjalan jika ada input dan output, maka kita harus mengakali dengan produce log file
 - Agar bisa berjalan terus proses Luigi, maka pada log file yang dibuat akan diberikan timestamp yang berasal dari parameter `GlobalParams().CurrentTimestampParams`
+
+    ```python
+    class GlobalParams(luigi.Config):
+        CurrentTimestampParams = luigi.DateSecondParameter(default = datetime.datetime.now())
+    ```
 - Untuk menjalankan proses dbt + Luigi, kita bisa menjalankan shell script `./run_dbt.sh`
 - Sebelum itu, ubah permissions shell script `run_dbt.sh` dengan cara `chmod 755 run_dbt.sh`
 - Selain itu, kita juga bisa melakukan scheduling terhadap script yang sudah dibuat
