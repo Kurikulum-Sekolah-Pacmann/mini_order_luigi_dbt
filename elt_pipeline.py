@@ -2,6 +2,7 @@ import subprocess as sp
 import luigi
 import datetime
 import time
+import logging
 
 class GlobalParams(luigi.Config):
     CurrentTimestampParams = luigi.DateSecondParameter(default = datetime.datetime.now())
@@ -17,22 +18,25 @@ class dbtDebug(luigi.Task):
         return luigi.LocalTarget(f"logs/dbt_debug/dbt_debug_logs_{self.get_current_timestamp}.log")
     
     def run(self):
+        try:
+            with open(self.output().path, "a") as f:
+                p1 = sp.run("cd ./dbt/ && dbt debug",
+                            stdout = f,
+                            stderr = sp.PIPE,
+                            text = True,
+                            shell = True,
+                            check = True)
+                
+                if p1.returncode == 0:
+                    logging.info("Success Run dbt debug process")
 
-        with open(self.output().path, "a") as f:
-            p1 = sp.run("cd ./dbt/ && dbt debug",
-                        stdout = f,
-                        stderr = sp.PIPE,
-                        text = True,
-                        shell = True,
-                        check = True)
-            
-            if p1.returncode == 0:
-                print("Success running dbt debug")
+                else:
+                    logging.error("Failed to run dbt debug")
 
-            else:
-                print("Failed run dbt debug")
-
-        time.sleep(2)
+            time.sleep(2)
+        
+        except Exception:
+            logging.error("Failed Process")
 
 class dbtDeps(luigi.Task):
 
@@ -45,22 +49,25 @@ class dbtDeps(luigi.Task):
         return luigi.LocalTarget(f"logs/dbt_deps/dbt_deps_logs_{self.get_current_timestamp}.log")
 
     def run(self):
+        try:
+            with open(self.output().path, "a") as f:
+                p1 = sp.run("cd ./dbt/ && dbt deps",
+                            stdout = f,
+                            stderr = sp.PIPE,
+                            text = True,
+                            shell = True,
+                            check = True)
+                
+                if p1.returncode == 0:
+                    logging.info("Success installing dependencies")
 
-        with open(self.output().path, "a") as f:
-            p1 = sp.run("cd ./dbt/ && dbt deps",
-                        stdout = f,
-                        stderr = sp.PIPE,
-                        text = True,
-                        shell = True,
-                        check = True)
-            
-            if p1.returncode == 0:
-                print("Success installing dependencies")
+                else:
+                    logging.error("Failed installing dependencies")
 
-            else:
-                print("Failed installing dependencies")
+            time.sleep(2)
 
-        time.sleep(2)
+        except Exception:
+            logging.error("Failed Process")
 
 class dbtTest(luigi.Task):
 
@@ -73,22 +80,25 @@ class dbtTest(luigi.Task):
         return luigi.LocalTarget(f"logs/dbt_test/dbt_run_logs_{self.get_current_timestamp}.log")
 
     def run(self):
-        
-        with open(self.output().path, "a") as f:
-            p1 = sp.run("cd ./dbt/ && dbt test",
-                        stdout = f,
-                        stderr = sp.PIPE,
-                        text = True,
-                        shell = True,
-                        check = True)
-            
-            if p1.returncode == 0:
-                print("Success running dbt test")
+        try:
+            with open(self.output().path, "a") as f:
+                p1 = sp.run("cd ./dbt/ && dbt test",
+                            stdout = f,
+                            stderr = sp.PIPE,
+                            text = True,
+                            shell = True,
+                            check = True)
+                
+                if p1.returncode == 0:
+                    logging.info("Success running dbt test")
 
-            else:
-                print("Failed running testing")
+                else:
+                    logging.error("Failed running testing")
 
-        time.sleep(2)
+            time.sleep(2)
+
+        except Exception:
+            logging.error("Failed Process")
 
 class dbtRun(luigi.Task):
 
@@ -101,25 +111,28 @@ class dbtRun(luigi.Task):
         return luigi.LocalTarget(f"logs/dbt_run/dbt_run_logs_{self.get_current_timestamp}.log")
     
     def run(self):
+        try:
+            with open(self.output().path, "a") as f:
+                p1 = sp.run("cd ./dbt/ && dbt run",
+                            stdout = f,
+                            stderr = sp.PIPE,
+                            text = True,
+                            shell = True,
+                            check = True)
+                
+                if p1.returncode == 0:
+                    logging.info("Success running dbt data model")
 
-        with open(self.output().path, "a") as f:
-            p1 = sp.run("cd ./dbt/ && dbt run",
-                        stdout = f,
-                        stderr = sp.PIPE,
-                        text = True,
-                        shell = True,
-                        check = True)
-            
-            if p1.returncode == 0:
-                print("Success running dbt data model")
+                else:
+                    logging.error("Failed running dbt model")
 
-            else:
-                print("Failed running dbt model")
+            time.sleep(2)
 
-        time.sleep(2)
-
+        except Exception:
+            logging.error("Failed Process")
 if __name__ == "__main__":
     luigi.build([dbtDebug(),
                  dbtDeps(),
                  dbtTest(),
-                 dbtRun()])
+                 dbtRun()],
+                 local_scheduler = True)
