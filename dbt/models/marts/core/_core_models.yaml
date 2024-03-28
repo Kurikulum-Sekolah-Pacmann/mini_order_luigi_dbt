@@ -91,6 +91,12 @@ models:
           - not_null
           - is_qty_less_than_zero
 
+      - name: status
+        description: "Status of Order"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Success', 'Canceled']
 
 
 
