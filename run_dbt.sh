@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "========== Start dbt with Luigi Orcestration Proces =========="
+echo "========== Start dbt with Luigi Orcestration Process =========="
 
 # Virtual Environment Path
 VENV_PATH="/home/shandytp/learn-dbt/venv/bin/activate"
@@ -18,4 +18,4 @@ python "$PYTHON_SCRIPT" >> /home/shandytp/learn-dbt/mini_order_luigi_dbt/logs/lu
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "Luigi started at ${dt}" >> /home/shandytp/learn-dbt/mini_order_luigi_dbt/logs/luigi_info.log
 
-echo "========== End of dbt with Luigi Orcestration Proces =========="
+echo "========== End of dbt with Luigi Orcestration Process =========="
