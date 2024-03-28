@@ -7,12 +7,13 @@
 - Task dbt yang akan dilakukan proses orchestration adalah
     - `dbt debug`: Mengecek koneksi antara dbt dengan data source
     - `dbt deps`: Menginstall dependensi yang dibutuhkan
-    - `dbt test`: Melakukan proses testing terhadap data model yang dimiliki dan membuat table constraints
     - `dbt run`: Menjalankan data model yang sudah dibuat
+    - `dbt test`: Melakukan proses testing terhadap data model yang dimiliki dan membuat table constraints
+
 
 - Sehingga, workflow dari Luigi akan seperti berikut
 
-    $$\text{dbt debug}\longrightarrow \text{dbt deps}\longrightarrow \text{dbt test}\longrightarrow \text{dbt run}$$
+    $$\text{dbt debug}\longrightarrow \text{dbt deps}\longrightarrow \text{dbt run}\longrightarrow \text{dbt test}$$
 
 - Pada repo ini, kita akan menggunakan case data source [Mini Order](https://github.com/ihdarsyd/mini-order/)
 - Untuk dbt data model, kita akan mengggunakan referensi dari repository https://github.com/shandytepe/mini_order_dbt/
@@ -20,7 +21,7 @@
 ### **dbt + Luigi Visualizer**
 ---
 
-![luigi_dbt_workflow](assets/luigi_dbt_workflow.png)
+![luigi_dbt_workflow](assets/luigi_dbt_workflow_new.png)
 
 ### **Explanation**
 ---
